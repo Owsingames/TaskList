@@ -1,0 +1,19 @@
+<h4>Side Quest</h4>
+
+<table class="border">
+    <th>Task</th>
+    <th>Staus</th>
+    <th>Reward</th>
+    <tr class="border" *ngFor="let item of taskList; index as i">
+        <td class="border">{{i + 1}}:{{item.task}}</td>
+        <td>{{item.completed}}</td>
+        <td>exp:{{item.exp}}</td>
+        <button (click)="complete(i)">Complete - Claim Exp</button>
+    </tr>
+</table>
+
+<h4>Add New Task</h4>
+<form #addTaskForm="ngForm" (ngSubmit)="addTask(addTaskForm)">
+    <input type="text" name="task" value="" ngModel/>
+    <input type="submit" value="Add Task" />
+</form>
